@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "floorplan",
+  "name": "户型装修设计",
+  "icon": "🏠",
+  "description": "2D 户型与家具布置、墙体拆改、3D 漫游、材料估价和方案导入导出",
+  "order": 17,
+  "entry": "/studio-projects/floorplan",
+  "capabilities": [
+    "floorplan-2d",
+    "floorplan-3d",
+    "local-storage",
+    "import-export"
+  ],
+  "compatibility": {
+    "host": "0.2.2-rc.1",
+    "runtime": "^0.5.0",
+    "worktable": "^0.6.0"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "repository": "https://github.com/wy51ai/floorplan-3d.git",
+  "revision": "730ec0923a018fdf38b4687c5ef385c7dcac451f",
+  "license": "MIT",
+  "three": "0.160.0",
+  "adaptations": ["本地打包 Three.js，移除 CDN 依赖", "使用工作室共享卡片和静态页面注册", "隔离方案存储键"]
+}

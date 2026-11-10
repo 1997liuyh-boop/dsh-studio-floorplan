@@ -1,0 +1,6 @@
+@reference "tailwindcss";
+
+html, body { @apply h-full w-full overflow-hidden; }
+.app { @apply h-dvh w-full min-w-0; }
+main, aside { @apply min-h-0 min-w-0; }
+button:focus-visible, input:focus-visible { @apply outline-2 outline-offset-2 outline-(--accent); }

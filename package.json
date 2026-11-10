@@ -1,0 +1,79 @@
+{
+  "name": "dsh-studio-floorplan",
+  "version": "0.1.0",
+  "description": "户型装修设计：2D 家具布置、墙体拆改、3D 漫游与装修估价",
+  "type": "module",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "static",
+    "cordis.patch.yml",
+    "dsh.plugin.json",
+    "studio.json",
+    "UPSTREAM.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "node scripts/check-install.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-slots"
+      ]
+    },
+    "compatibility": {
+      "dsh": "0.2.2-rc.1",
+      "dshReleases": {
+        "0.2.1-rc.2": "experimental",
+        "0.2.2-rc.1": "experimental"
+      }
+    }
+  },
+  "peerDependencies": {
+    "dsh-studio-projects": "^0.5.0",
+    "dsh-worktable": "^0.6.0"
+  },
+  "peerDependenciesMeta": {
+    "dsh-studio-projects": {
+      "optional": true
+    },
+    "dsh-worktable": {
+      "optional": true
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1997liuyh-boop/dsh-studio-floorplan.git"
+  },
+  "engines": {
+    "dsh": "0.2.1-rc.2 || >=0.2.2-rc.1 <0.2.2"
+  },
+  "homepage": "https://github.com/1997liuyh-boop/dsh-studio-floorplan#readme",
+  "bugs": {
+    "url": "https://github.com/1997liuyh-boop/dsh-studio-floorplan/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "studio"
+  ],
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "postcss": "^8.5.15",
+    "@tailwindcss/postcss": "^4.1.0",
+    "tailwindcss": "^4.3.0"
+  }
+}
