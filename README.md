@@ -1,20 +1,38 @@
-# 户型装修工作室
+# dsh-studio-floorplan
 
-基于 [wy51ai/floorplan-3d](https://github.com/wy51ai/floorplan-3d) 的 DSH 独立插件，保留上游 MIT 许可。固定上游提交见 UPSTREAM.json。
+[简体中文](README.zh.md)
 
-先安装 [工作室容器与共享运行时](https://github.com/1997liuyh-boop/dsh-studio-library)，再在市场通过本仓库 Git URL 安装并启用本插件。根目录 lib/、static/ 是已构建的安装文件。开发时执行 npm install --include=dev --legacy-peer-deps、npm run build、npm run check，构建无需相邻工作库。
+## Repository
 
+- Repository name: `dsh-studio-floorplan`
+- Repository description: Floor-plan and furnishing studio for 2D layout editing, wall changes, 3D walkthroughs, measurements and material estimates.
+- Source: `https://github.com/1997liuyh-boop/dsh-studio-floorplan`
+- Upstream: `https://github.com/wy51ai/floorplan-3d` at the revision recorded in `UPSTREAM.json`.
 
-在工作室列表打开“户型装修设计”，使用 [floorplan-3d](https://github.com/wy51ai/floorplan-3d) 原应用进行 2D 家具布置、墙体拆改、尺寸测量、3D 鸟瞰与第一人称漫游，并估算地面材料费用。保留上游 MIT 许可，Three.js 固定为 0.160.0 并打包到本地，运行不依赖 CDN，也无需启动独立服务。
+## Features
 
-## 数据与限制
+- Edit rooms, walls, windows, doors and furniture in the 2D plan.
+- Measure spaces, estimate floor-material cost and inspect the result in 3D bird's-eye or first-person view.
+- Save plans in isolated local storage and export or import JSON backups and PNG images.
+- Bundle Three.js locally, so the published page does not require a CDN or a separate service.
+- Use the shared studio card and project container without modifying the host application.
 
-方案自动保存在当前宿主来源的独立 localStorage 键下；桌面和浏览器来源之间不会自动同步。可导出、导入 JSON 备份方案，也可导出 PNG。原应用内置一套示例户型；自定义房间与墙体需要编辑上游 `ROOMS`、`WALLS` 和 `WINS` 数据，不支持上传户型图自动识别。
+## Installation
 
-本目录通过 `build.mjs` 使用同级工作库 SDK 构建，`DSH_STUDIO_LIBRARY` 可指定工作库位置。构建前将 npm 官方 `three@0.160.0` 包解压至 `vendor/package`。在工作库中登记 `studios/floorplan` 后，工作库构建器调用本目录的构建脚本；插件通过正式插件管理器安装到桌面或 Web 配置。
+Install the control bundle first, then install this exact studio tag with the official Desktop plugin manager after fully quitting Desktop:
 
-新增嵌入样式由 `src/embed.tw.css` 通过 Tailwind CSS 生成，原应用布局与编辑交互保留。卸载插件不清除方案；清除宿主浏览器数据会清除本地方案，操作前请导出 JSON。
+```powershell
+& "<Desktop install directory>\resources\runtime\cli\bin\dsh.cmd" plugin --profile desktop add "github:1997liuyh-boop/dsh-studio-library#v0.1.3"
+& "<Desktop install directory>\resources\runtime\cli\bin\dsh.cmd" plugin --profile desktop add "github:1997liuyh-boop/dsh-studio-floorplan#v0.1.1"
+& "<Desktop install directory>\resources\runtime\cli\bin\dsh.cmd" plugin --profile desktop list
+```
 
-## 更新已安装插件
+Verify that the installed package exposes `main: lib/index.js`, `exports./client: lib/client.js`, `dsh.bundle.patch: ./cordis.patch.yml`, `static/index.html` and `studio.json`. Restart Desktop and open “Floor plan studio”.
 
-GitHub 代码提交不会自动更新 Desktop profile 中已经锁定的安装版本。请通过插件管理器重新安装本仓库来源；旧共享组合库的用户请先按[控制层迁移步骤](https://github.com/1997liuyh-boop/dsh-studio-library#更新与旧组合库迁移)保留现有子工作室，再移除旧组合库。工作室内升级需要已发布的适配安装包。
+## Requirements and limits
+
+The published package uses the pinned local Three.js copy described in `UPSTREAM.json`. It does not upload plans or recognize an uploaded floor-plan image automatically. Export JSON before clearing browser or DSH data. Custom room data requires source changes and a rebuild.
+
+## License and sources
+
+The studio is MIT licensed and retains the upstream MIT notice. See `UPSTREAM.json` for the source revision and adaptations.

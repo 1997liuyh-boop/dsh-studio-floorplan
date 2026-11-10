@@ -1,6 +1,6 @@
 {
   "name": "dsh-studio-floorplan",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "户型装修设计：2D 家具布置、墙体拆改、3D 漫游与装修估价",
   "type": "module",
   "license": "MIT",
