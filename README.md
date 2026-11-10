@@ -7,8 +7,14 @@
 
 在工作室列表打开“户型装修设计”，使用 [floorplan-3d](https://github.com/wy51ai/floorplan-3d) 原应用进行 2D 家具布置、墙体拆改、尺寸测量、3D 鸟瞰与第一人称漫游，并估算地面材料费用。保留上游 MIT 许可，Three.js 固定为 0.160.0 并打包到本地，运行不依赖 CDN，也无需启动独立服务。
 
+## 数据与限制
+
 方案自动保存在当前宿主来源的独立 localStorage 键下；桌面和浏览器来源之间不会自动同步。可导出、导入 JSON 备份方案，也可导出 PNG。原应用内置一套示例户型；自定义房间与墙体需要编辑上游 `ROOMS`、`WALLS` 和 `WINS` 数据，不支持上传户型图自动识别。
 
 本目录通过 `build.mjs` 使用同级工作库 SDK 构建，`DSH_STUDIO_LIBRARY` 可指定工作库位置。构建前将 npm 官方 `three@0.160.0` 包解压至 `vendor/package`。在工作库中登记 `studios/floorplan` 后，工作库构建器调用本目录的构建脚本；插件通过正式插件管理器安装到桌面或 Web 配置。
 
 新增嵌入样式由 `src/embed.tw.css` 通过 Tailwind CSS 生成，原应用布局与编辑交互保留。卸载插件不清除方案；清除宿主浏览器数据会清除本地方案，操作前请导出 JSON。
+
+## 更新已安装插件
+
+GitHub 代码提交不会自动更新 Desktop profile 中已经锁定的安装版本。请通过插件管理器重新安装本仓库来源；旧共享组合库的用户请先按[控制层迁移步骤](https://github.com/1997liuyh-boop/dsh-studio-library#更新与旧组合库迁移)保留现有子工作室，再移除旧组合库。工作室内升级需要已发布的适配安装包。
