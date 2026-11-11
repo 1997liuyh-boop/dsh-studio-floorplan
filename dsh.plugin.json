@@ -1,6 +1,6 @@
 {
   "name": "dsh-studio-floorplan",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "2D 户型与家具布置、墙体拆改、3D 漫游、材料估价和方案导入导出",
   "entry": {
     "name": "dsh-studio-floorplan",

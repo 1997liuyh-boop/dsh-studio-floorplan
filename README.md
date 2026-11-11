@@ -23,7 +23,7 @@ Install the control bundle first, then install this exact studio tag with the of
 
 ```powershell
 & "<Desktop install directory>\resources\runtime\cli\bin\dsh.cmd" plugin --profile desktop add "github:1997liuyh-boop/dsh-studio-library#v0.1.3"
-& "<Desktop install directory>\resources\runtime\cli\bin\dsh.cmd" plugin --profile desktop add "github:1997liuyh-boop/dsh-studio-floorplan#v0.1.1"
+& "<Desktop install directory>\resources\runtime\cli\bin\dsh.cmd" plugin --profile desktop add "github:1997liuyh-boop/dsh-studio-floorplan#v0.1.2"
 & "<Desktop install directory>\resources\runtime\cli\bin\dsh.cmd" plugin --profile desktop list
 ```
 
